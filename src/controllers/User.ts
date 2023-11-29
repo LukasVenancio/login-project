@@ -22,4 +22,19 @@ export class UserController {
         
         await this.service.create(user, res);
     }
+
+    public validateEmail = async (req: Request, res: Response) => {
+       await this.service.validateEmail(req.body.email, res);
+    }
+
+    public generateAccessCode = async (req: Request, res: Response) => {
+        await this.service.generateAccessCode(req.body.email, res);
+    }
+
+    public login = async (req: Request, res: Response) => {
+        await this.service.login({
+            code: req.body.code,
+            email: req.body.email
+        }, res);
+    }
 }

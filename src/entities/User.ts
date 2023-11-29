@@ -21,6 +21,12 @@ export class User{
     @Column({type: 'int', nullable: false})
     cpf: number;
 
+    @Column({type: 'int', nullable: true})
+    accessCode: number;
+
+    @Column({type: 'datetime', nullable: true})
+    accessCodeValidity: Date;
+
     constructor(
         firstName: string,
         secondName: string,
