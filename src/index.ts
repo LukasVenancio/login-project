@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import { AppDataSource } from './data-source';
 import router from './routes/Router';
+require('dotenv').config();
 
 const app = express();
 

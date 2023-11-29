@@ -12,11 +12,9 @@ export class EmailService {
     private apiInstance = new brevo.TransactionalEmailsApi();
     private sendSmtpEmail = new brevo.SendSmtpEmail();
 
-    constructor(){
-        this.apiKey.apiKey = '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'
-    }
-
     public send = (receiver: EmailReceiver, redirectUrl: string, message: string) => {
+        this.apiKey.apiKey = process.env.EMAIL_API_KEY;
+        
         this.sendSmtpEmail.subject = message;
         this.sendSmtpEmail.htmlContent = `<html><body><h1>${message}</h1><br><p>${redirectUrl}</p></body></html>`;
         this.sendSmtpEmail.sender = { "name": "John", "email": "example@example.com" };
